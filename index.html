@@ -11,6 +11,91 @@
   <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
   <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
   <link href="css/main.css?ver=1.1.0" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    /* ===== Custom portfolio section ===== */
+    .section-portfolio {
+      background: #f7f9fc;
+    }
+
+    .portfolio-subtitle {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 0.95rem;
+      color: #6c757d;
+    }
+
+    .portfolio-carousel {
+      margin-top: 32px;
+    }
+
+    .portfolio-slide {
+      padding: 10px 6px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      background: #111827;
+      border-radius: 18px;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.45);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 14px;
+      height: 100%;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .portfolio-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      padding: 0 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .portfolio-card-text {
+      font-size: 0.75rem;
+      color: #6c757d;
+      margin-bottom: 0;
+      padding: 0 10px;
+    }
+
+    /* Swiper coverflow tweaks */
+    .portfolio-swiper {
+      padding-bottom: 40px;
+    }
+
+    .portfolio-swiper .swiper-wrapper {
+      align-items: center;
+    }
+
+    .portfolio-swiper .swiper-slide {
+      width: 260px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* داخل كل سلايد نعرض كرتًا واحدًا فقط ونخفي الباقي */
+    .portfolio-swiper .swiper-slide .portfolio-slide:not(:first-child) {
+      display: none;
+    }
+
+    .portfolio-swiper .swiper-slide .portfolio-slide:first-child {
+      margin: 0 auto;
+      max-width: 340px;
+    }
+  </style>
   <noscript>
     <style type="text/css">
       [data-aos] {
@@ -321,181 +406,567 @@
       </div>
       <!-- ========= End Skills ================ -->
 
-      <!-- ========= Start portfolio ================ -->
-      <div class="section" id="portfolio">
+      <!-- ========= Start portfolio (new design) ================ -->
+      <div class="section section-portfolio" id="portfolio">
         <div class="container">
-          <div class="row">
-            <div class="col-md-6 ml-auto mr-auto">
-              <div class="h4 text-center mb-4 title">Portfolio</div>
-              <div class="nav-align-center">
-                <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development"
-                      role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-                  <!-- <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role="tablist"><i
-                        class="fa fa-picture-o" aria-hidden="true"></i></a></li> -->
-                  <!-- <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography" role="tablist"><i
-                        class="fa fa-camera" aria-hidden="true"></i></a></li> -->
-                </ul>
-              </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+              <p class="text-muted text-uppercase small mb-2">Selected Work</p>
+              <div class="h3 mb-3 title">Portfolio</div>
+              <p class="portfolio-subtitle">
+                مختارات من المشاريع التي عملت عليها خلال السنوات الماضية، تشمل منصات دفع إلكتروني،
+                أنظمة طبية، حلول لإدارة الأعمال، وتطبيقات ويب مخصصة لعملاء من دول مختلفة.
+              </p>
             </div>
           </div>
-          <div class="tab-content gallery mt-5">
-            <div class="tab-pane active" id="web-development">
-              <div class="ml-auto mr-auto">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a target="_blank" href="https://dev.fatoorah.sa">
-                        <figure class="cc-effect"><img src="images/fatoorah.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">فاتورة</div>
-                          </figcaption>
-                        </figure>
-                      </a>
+          <div class="row mt-5">
+            <div class="col-12">
+              <div class="swiper portfolio-swiper portfolio-carousel" id="projectsCarousel">
+                <div class="swiper-wrapper">
+                  <!-- Slide 1 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="https://dev.fatoorah.sa" target="_blank">
+                          <img src="images/fatoorah.png" alt="فاتورة">
+                          <div class="portfolio-card-title">فاتورة</div>
+                          <p class="portfolio-card-text">منصة إدارة الفواتير والمدفوعات الإلكترونية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="https://med.const-tech.biz/alatheeb-update/public/" target="_blank">
+                          <img src="images/أسنان.png" alt="عيادة أسنان">
+                          <div class="portfolio-card-title">نظام عيادة أسنان</div>
+                          <p class="portfolio-card-text">إدارة مواعيد وملفات المرضى والفواتير.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="https://ethaq.com.sa" target="_blank">
+                          <img src="images/ethaq.png" alt="منصة إيثاق">
+                          <div class="portfolio-card-title">منصة إيثاق</div>
+                          <p class="portfolio-card-text">إدارة العقود والوثائق القانونية إلكترونياً.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="https://talabatk.med.const-tech.biz" target="_blank">
+                          <img src="images/talabatk.png" alt="طلباتك">
+                          <div class="portfolio-card-title">طلباتك</div>
+                          <p class="portfolio-card-text">نظام لإدارة طلبات المطاعم والمتاجر.</p>
+                        </a>
+                      </div>
                     </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="https://med.const-tech.biz/alatheeb-update/public/">
-                        <figure class="cc-effect"><img src="images/أسنان.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">عيادة أسنان</div>
-                            <!-- <p>Web Development</p> -->
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a target="_blank" href="https://ethaq.com.sa">
-                        <figure class="cc-effect"><img src="images/ethaq.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">منصة إيثاق</div>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    
                   </div>
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a target="_blank" href="https://talabatk.med.const-tech.biz">
-                        <figure class="cc-effect"><img src="images/talabatk.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">طلباتك</div>
-                          </figcaption>
-                        </figure>
-                      </a>
+                  <!-- Slide 2 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="http://www.pegasusmaps.epizy.com/?i=1" target="_blank">
+                          <img src="images/maps.png" alt="تقييم الأماكن">
+                          <div class="portfolio-card-title">تقييم الأماكن</div>
+                          <p class="portfolio-card-text">تصنيف وتقييم الأماكن على الخريطة.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="3almalsahafa-crm">
+                          <div class="portfolio-card-title">3almalsahafa-crm</div>
+                          <p class="portfolio-card-text">نظام CRM لإدارة العملاء والمهام.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="3iadh-hosptil">
+                          <div class="portfolio-card-title">3iadh-hosptil</div>
+                          <p class="portfolio-card-text">نظام إدارة مستشفى وعيادات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="3iadh-kabir">
+                          <div class="portfolio-card-title">3iadh-kabir</div>
+                          <p class="portfolio-card-text">منصة لإدارة عيادات طبية متقدمة.</p>
+                        </a>
+                      </div>
                     </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a target="_blank" href="http://www.pegasusmaps.epizy.com/?i=1">
-                        <figure class="cc-effect"><img src="images/maps.png" alt="Image" />
-                          <figcaption>
-                            <div class="h4">تقييم الاماكن</div>
-                          </figcaption>
-                        </figure>
-                      </a>
+                  </div>
+                  <!-- Slide 3 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="3lag-2">
+                          <div class="portfolio-card-title">3lag-2</div>
+                          <p class="portfolio-card-text">نظام لإدارة جلسات العلاج والمتابعة.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="3lag-ts">
+                          <div class="portfolio-card-title">3lag-ts</div>
+                          <p class="portfolio-card-text">منصة علاجية متكاملة للعيادات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="3lag-v3">
+                          <div class="portfolio-card-title">3lag-v3</div>
+                          <p class="portfolio-card-text">إدارة خطط العلاج والزيارات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="3lag26">
+                          <div class="portfolio-card-title">3lag26</div>
+                          <p class="portfolio-card-text">حل مخصص لعيادات العلاج الطبيعي.</p>
+                        </a>
+                      </div>
                     </div>
-                    
+                  </div>
+                  <!-- Slide 4 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="admin-new12">
+                          <div class="portfolio-card-title">admin-new12</div>
+                          <p class="portfolio-card-text">لوحة تحكم إدارية متقدمة.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="alhaiah">
+                          <div class="portfolio-card-title">alhaiah</div>
+                          <p class="portfolio-card-text">نظام لإدارة هيئات ومؤسسات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="alhjamh2025">
+                          <div class="portfolio-card-title">alhjamh2025</div>
+                          <p class="portfolio-card-text">حل متكامل لعيادات الحجامة.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="alrawdah">
+                          <div class="portfolio-card-title">alrawdah</div>
+                          <p class="portfolio-card-text">نظام إدارة مركز رعاية صحية.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 5 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="amwaj-3lag">
+                          <div class="portfolio-card-title">amwaj-3lag</div>
+                          <p class="portfolio-card-text">نظام عيادات وجلسات علاجية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="Animal-arsan">
+                          <div class="portfolio-card-title">Animal-arsan</div>
+                          <p class="portfolio-card-text">نظام لإدارة مستشفى بيطري.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="animal-demo">
+                          <div class="portfolio-card-title">animal-demo</div>
+                          <p class="portfolio-card-text">نسخة توضيحية لنظام بيطري.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="animal-hospital">
+                          <div class="portfolio-card-title">animal-hospital</div>
+                          <p class="portfolio-card-text">إدارة عيادة ومستشفى حيوانات.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 6 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="animal25">
+                          <div class="portfolio-card-title">animal25</div>
+                          <p class="portfolio-card-text">حل مخصص للعيادات البيطرية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="bisha2">
+                          <div class="portfolio-card-title">bisha2</div>
+                          <p class="portfolio-card-text">مشروع ويب تجاري متكامل.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="Blacklist-tgsid">
+                          <div class="portfolio-card-title">Blacklist-tgsid</div>
+                          <p class="portfolio-card-text">نظام قائمة سوداء للمنشآت.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="cashir-27">
+                          <div class="portfolio-card-title">cashir-27</div>
+                          <p class="portfolio-card-text">نظام نقاط بيع وكاشير.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 7 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="cashir-apis">
+                          <div class="portfolio-card-title">cashir-apis</div>
+                          <p class="portfolio-card-text">خدمات API لنظام الكاشير.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="cashir26">
+                          <div class="portfolio-card-title">cashir26</div>
+                          <p class="portfolio-card-text">نسخة مطورة من نظام نقاط البيع.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="clmrc-hr">
+                          <div class="portfolio-card-title">clmrc-hr</div>
+                          <p class="portfolio-card-text">نظام موارد بشرية لمركز طبي.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="coach">
+                          <div class="portfolio-card-title">coach</div>
+                          <p class="portfolio-card-text">منصة تدريبية للمدربين والعملاء.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 8 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="drive">
+                          <div class="portfolio-card-title">drive</div>
+                          <p class="portfolio-card-text">نظام لإدارة أسطول المركبات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="elharby">
+                          <div class="portfolio-card-title">elharby</div>
+                          <p class="portfolio-card-text">منصة لخدمات الصيانة والدعم.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="elmaher">
+                          <div class="portfolio-card-title">elmaher</div>
+                          <p class="portfolio-card-text">موقع تعليمي وتدريبي متكامل.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="eltayeb-trans">
+                          <div class="portfolio-card-title">eltayeb-trans</div>
+                          <p class="portfolio-card-text">نظام شركة نقل وخدمات لوجستية.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 9 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="engel-sa">
+                          <div class="portfolio-card-title">engel-sa</div>
+                          <p class="portfolio-card-text">موقع شركة هندسية سعودية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="haiah-hr">
+                          <div class="portfolio-card-title">haiah-hr</div>
+                          <p class="portfolio-card-text">نظام موارد بشرية لهيئة.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="haih-tafl--3lag">
+                          <div class="portfolio-card-title">haih-tafl--3lag</div>
+                          <p class="portfolio-card-text">نظام علاجي للأطفال.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="hdor-2026">
+                          <div class="portfolio-card-title">hdor-2026</div>
+                          <p class="portfolio-card-text">نظام حضور وانصراف متقدم.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 10 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="highcare">
+                          <div class="portfolio-card-title">highcare</div>
+                          <p class="portfolio-card-text">حل لإدارة مركز رعاية صحية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="hospital2026">
+                          <div class="portfolio-card-title">hospital2026</div>
+                          <p class="portfolio-card-text">نظام شامل لإدارة مستشفى.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="icura-msag">
+                          <div class="portfolio-card-title">icura-msag</div>
+                          <p class="portfolio-card-text">نظام إداري لمجمع طبي.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="invoice-const">
+                          <div class="portfolio-card-title">invoice-const</div>
+                          <p class="portfolio-card-text">نظام فواتير لشركة إنشاءات.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 11 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="jalsatshifa-3lag">
+                          <div class="portfolio-card-title">jalsatshifa-3lag</div>
+                          <p class="portfolio-card-text">نظام جلسات علاجية متكاملة.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="jawhara-afrah">
+                          <div class="portfolio-card-title">jawhara-afrah</div>
+                          <p class="portfolio-card-text">منصة لحجوزات قاعات الأفراح.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="kahil-hjamh">
+                          <div class="portfolio-card-title">kahil-hjamh</div>
+                          <p class="portfolio-card-text">نظام متخصص لعيادات الحجامة.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="kasarat">
+                          <div class="portfolio-card-title">kasarat</div>
+                          <p class="portfolio-card-text">نظام لإدارة الكسّارات والمعدات.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 12 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="khaled-siana">
+                          <div class="portfolio-card-title">khaled-siana</div>
+                          <p class="portfolio-card-text">منصة لخدمات الصيانة المنزلية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="m3aodh">
+                          <div class="portfolio-card-title">m3aodh</div>
+                          <p class="portfolio-card-text">نظام تذكير وإدارة مواعيد.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="me3ad_app">
+                          <div class="portfolio-card-title">me3ad_app</div>
+                          <p class="portfolio-card-text">تطبيق لحجز المواعيد وإدارتها.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="monera">
+                          <div class="portfolio-card-title">monera</div>
+                          <p class="portfolio-card-text">منصة إلكترونية لخدمات متنوعة.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 13 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="mtb3a">
+                          <div class="portfolio-card-title">mtb3a</div>
+                          <p class="portfolio-card-text">نظام إدارة مبيعات ومشتريات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="NAKHA">
+                          <div class="portfolio-card-title">NAKHA</div>
+                          <p class="portfolio-card-text">منصة تجارية لبيع المنتجات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="profile-buy">
+                          <div class="portfolio-card-title">profile-buy</div>
+                          <p class="portfolio-card-text">واجهة شراء وعرض باقات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="rfah">
+                          <div class="portfolio-card-title">rfah</div>
+                          <p class="portfolio-card-text">نظام لجمعية خيرية ومساعدات.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 14 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="sader-2iada">
+                          <div class="portfolio-card-title">sader-2iada</div>
+                          <p class="portfolio-card-text">نظام صادر ووارد للعيادات والمراكز.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="sahlha-tgsid">
+                          <div class="portfolio-card-title">sahlha-tgsid</div>
+                          <p class="portfolio-card-text">منصة لتقسيط المدفوعات وإدارة السداد.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="salsabil-gm3ia">
+                          <div class="portfolio-card-title">salsabil-gm3ia</div>
+                          <p class="portfolio-card-text">نظام لإدارة جمعية خيرية ومشاريعها.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="sanad-3lag">
+                          <div class="portfolio-card-title">sanad-3lag</div>
+                          <p class="portfolio-card-text">نظام لدعم ومتابعة الحالات العلاجية.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 15 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="sarcenter">
+                          <div class="portfolio-card-title">sarcenter</div>
+                          <p class="portfolio-card-text">نظام لإدارة مركز تدريب أو استشارات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="shamsan">
+                          <div class="portfolio-card-title">shamsan</div>
+                          <p class="portfolio-card-text">منصة لإدارة مؤسسة أو شركة تجارية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="sizar-new">
+                          <div class="portfolio-card-title">sizar-new</div>
+                          <p class="portfolio-card-text">نظام متكامل لمتجر أو علامة تجارية.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="ta2geer-afrah">
+                          <div class="portfolio-card-title">ta2geer-afrah</div>
+                          <p class="portfolio-card-text">نظام لحجوزات قاعات وأفراح وتأجيرها.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 16 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="tailor-new">
+                          <div class="portfolio-card-title">tailor-new</div>
+                          <p class="portfolio-card-text">نظام لإدارة مشغل خياطة وطلبات العملاء.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="tmt3-crm">
+                          <div class="portfolio-card-title">tmt3-crm</div>
+                          <p class="portfolio-card-text">نظام CRM لمتابعة العملاء والمهام.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="warshaty">
+                          <div class="portfolio-card-title">warshaty</div>
+                          <p class="portfolio-card-text">نظام لإدارة ورش الصيانة والخدمات.</p>
+                        </a>
+                      </div>
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="zawyt-shtk">
+                          <div class="portfolio-card-title">zawyt-shtk</div>
+                          <p class="portfolio-card-text">حل لإدارة متجر أو منصة خدمات محلية.</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide 17 -->
+                  <div class="swiper-slide">
+                    <div class="row">
+                      <div class="col-md-3 portfolio-slide">
+                        <a class="portfolio-card" href="#" target="_blank">
+                          <img src="images/project-default.png" alt="zitonah-hjamh">
+                          <div class="portfolio-card-title">zitonah-hjamh</div>
+                          <p class="portfolio-card-text">نظام متخصص لإدارة عيادات الحجامة.</p>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="tab-pane" id="graphic-design" role="tabpanel">
-              <div class="ml-auto mr-auto">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/graphic-design-1.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Triangle Pattern</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/graphic-design-2.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Abstract Umbrella</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/graphic-design-3.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Cube Surface Texture</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#graphic-design">
-                        <figure class="cc-effect"><img src="images/graphic-design-4.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Abstract Line</div>
-                            <p>Graphic Design</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane" id="Photography" role="tabpanel">
-              <div class="ml-auto mr-auto">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-1.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-3.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Wedding Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-2.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Beach Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                    <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                      <a href="#Photography">
-                        <figure class="cc-effect"><img src="images/photography-4.jpg" alt="Image" />
-                          <figcaption>
-                            <div class="h4">Nature Photoshoot</div>
-                            <p>Photography</p>
-                          </figcaption>
-                        </figure>
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
               </div>
             </div>
           </div>
@@ -583,7 +1054,7 @@
               </div>
               <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
                 <div class="card-body">
-                  <div class="h5">PHP / Laravel developer</div>
+                  <div class="h5">Team Leader / PHP / Laravel developer</div>
                   <ul>
                     <li>Successfully executed assigned development tasks with high quality and timeliness.</li>
                     <li>Developed backend systems for client websites, ensuring full compliance with functional requirements.</li>
@@ -636,144 +1107,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="section" id="reference">
-        <div class="container cc-reference">
-          <div class="h4 mb-4 text-center title">References</div>
-          <div class="card" data-aos="zoom-in">
-            <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li class="active" data-target="#cc-Indicators" data-slide-to="0"></li>
-                <li data-target="#cc-Indicators" data-slide-to="1"></li>
-                <li data-target="#cc-Indicators" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-1.jpg"
-                        alt="Image" />
-                      <div class="h5 pt-2">Aiyana</div>
-                      <p class="category">CEO / WEBM</p>
-                    </div>
-                    <div class="col-lg-10 col-md-9">
-                      <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est
-                        porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam
-                        luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper,
-                        laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient
-                        fringilla rhoncus eleifend.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="row">
-                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-2.jpg"
-                        alt="Image" />
-                      <div class="h5 pt-2">Braiden</div>
-                      <p class="category">CEO / Creativem</p>
-                    </div>
-                    <div class="col-lg-10 col-md-9">
-                      <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est
-                        porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam
-                        luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper,
-                        laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient
-                        fringilla rhoncus eleifend.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="row">
-                    <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-3.jpg"
-                        alt="Image" />
-                      <div class="h5 pt-2">Alexander</div>
-                      <p class="category">CEO / Webnote</p>
-                    </div>
-                    <div class="col-lg-10 col-md-9">
-                      <p> Habitasse venenatis commodo tempor eleifend arcu sociis sollicitudin ante pulvinar ad, est
-                        porta cras erat ullamcorper volutpat metus duis platea convallis, tortor primis ac quisque etiam
-                        luctus nisl nullam fames. Ligula purus suscipit tempus nascetur curabitur donec nam ullamcorper,
-                        laoreet nullam mauris dui aptent facilisis neque elementum ac, risus semper felis parturient
-                        fringilla rhoncus eleifend.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="section" id="contact">
-        <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
-          <div class="container">
-            <div class="cc-contact">
-              <div class="row">
-                <div class="col-md-9">
-                  <div class="card mb-0" data-aos="zoom-in">
-                    <div class="h4 text-center title">Contact Me</div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="card-body">
-                          <form action="https://formspree.io/your@email.com" method="POST">
-                            <div class="p pb-3"><strong>Feel free to contact me </strong></div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="input-group"><span class="input-group-addon"><i
-                                      class="fa fa-user-circle"></i></span>
-                                  <input class="form-control" type="text" name="name" placeholder="Name"
-                                    required="required" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="input-group"><span class="input-group-addon"><i
-                                      class="fa fa-file-text"></i></span>
-                                  <input class="form-control" type="text" name="Subject" placeholder="Subject"
-                                    required="required" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="input-group"><span class="input-group-addon"><i
-                                      class="fa fa-envelope"></i></span>
-                                  <input class="form-control" type="email" name="_replyto" placeholder="E-mail"
-                                    required="required" />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mb-3">
-                              <div class="col">
-                                <div class="form-group">
-                                  <textarea class="form-control" name="message" placeholder="Your Message"
-                                    required="required"></textarea>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <button class="btn btn-primary" type="submit">Send</button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="card-body">
-                          <p class="mb-0"><strong>Address </strong></p>
-                          <p class="pb-2">140, City Center, New York, U.S.A</p>
-                          <p class="mb-0"><strong>Phone</strong></p>
-                          <p class="pb-2">+1718-111-0011</p>
-                          <p class="mb-0"><strong>Email</strong></p>
-                          <p>anthony@company.com</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
   <footer class="footer">
@@ -796,6 +1129,37 @@
   <script src="js/now-ui-kit.js?ver=1.1.0"></script>
   <script src="js/aos.js?ver=1.1.0"></script>
   <script src="scripts/main.js?ver=1.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var swiper = new Swiper('.portfolio-swiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          rotate: 30,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+        },
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          768: { slidesPerView: 'auto' },
+          1200: { slidesPerView: 'auto' }
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
